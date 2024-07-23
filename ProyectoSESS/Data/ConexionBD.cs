@@ -56,7 +56,7 @@ namespace ProyectoSESS.Data
         {
             try
             {
-                strCadenaCnx = "Data Source=VICTUS\\SQLEXPRESS;Initial Catalog=DB_API_Sistema_Especializado_Servicio_De_Salud_1; Integrated Security = True";
+                strCadenaCnx = "Data Source=DESKTOP-L8GLCDU\\SQLEXPRESS;Initial Catalog=DB_API_Sistema_Especializado_Servicio_De_Salud_1; Integrated Security = True";
                 objCnnBD.ConnectionString = strCadenaCnx;
                 objCnnBD.Open();
                 blnBDAbierta = true;

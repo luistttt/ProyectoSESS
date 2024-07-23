@@ -64,7 +64,7 @@ namespace ProyectoSESS.Data
                         Id_Horario = Convert.ToInt32(dr["Id_Horario"]),
                         Id_Medico = Convert.ToInt32(dr["Id_Medico"]),
                         Fecha_Horario = Convert.ToDateTime(dr["Fecha_Horario"].ToString()),
-                        Estado_Horario = dr["Horario_Medico"].ToString()
+                        Estado_Horario = dr["Estado_horario"].ToString()
                     });
                 }
                 return oListar_Horario_Medico;
@@ -80,7 +80,7 @@ namespace ProyectoSESS.Data
             List<Horario_Medico> oObtener_Horario_Medico = new List<Horario_Medico>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE Consultar_HorarioMedico'" + Id_Horario + "'";
+            sentencia = "EXECUTE Consultar_Horario_Medico " + Id_Horario ;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;

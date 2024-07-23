@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace ProyectoSESS.Data
 {
@@ -100,7 +98,7 @@ namespace ProyectoSESS.Data
             List<HistoriaMedica> oListaHistoriaMedica = new List<HistoriaMedica>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE SP_CONSULTAR_HISTORIA_MEDICA'" + Id_Historia + "'";
+            sentencia = "EXECUTE SP_CONSULTAR_HISTORIA_MEDICA " + Id_Historia;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;

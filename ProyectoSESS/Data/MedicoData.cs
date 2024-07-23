@@ -97,7 +97,7 @@ namespace ProyectoSESS.Data
             List<Medico> oListaMedico = new List<Medico>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE Consultar_Medico'" + Id_Medico + "'";
+            sentencia = "EXECUTE Consultar_Medico "+ Id_Medico;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;
@@ -109,7 +109,7 @@ namespace ProyectoSESS.Data
                         Id_Medico = Convert.ToInt32(dr["Id_Medico"]),
                         Id_Empleado = Convert.ToInt32(dr["Id_Empleado"]),
                         Id_Especialidad = Convert.ToInt32(dr["Id_Especialidad"]),
-                        Numero_Consultorio = Convert.ToInt32(dr["Número_Consultorio"]),
+                        Numero_Consultorio = Convert.ToInt32(dr["Numero_Consultorio"]),
                         Estado_Medico = dr["Estado_Medico"].ToString()
                     });
                 }
