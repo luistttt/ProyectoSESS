@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace ProyectoSESS.Data
 {
@@ -26,14 +27,18 @@ namespace ProyectoSESS.Data
             }
         }
 
+       
         public static bool ActualizarHistoriaMedica(HistoriaMedica oHistoriaMedica)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_HISTORIA_MEDICA'" + oHistoriaMedica.Id_Historia + "','" + oHistoriaMedica.Id_Paciente
-           + "','" + oHistoriaMedica.Id_Medico + "','" + oHistoriaMedica.Fecha_Ingreso + "','" + oHistoriaMedica.Estado_Historia +
+
+            string fechaFormateada = oHistoriaMedica.Fecha_Ingreso.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE SP_ACTUALIZAR_HISTORIA_MEDICA " + oHistoriaMedica.Id_Historia + "," + oHistoriaMedica.Id_Paciente
+           + ",'" + fechaFormateada + "','" + oHistoriaMedica.Estado_Historia +
            "','" + oHistoriaMedica.Concepto + "','" + oHistoriaMedica.Observaciones + "'";
 
+            
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
