@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -31,10 +32,12 @@ namespace ProyectoSESS.Data
         public static bool ActualizarPaciente(Paciente oPaciente)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Actualizar_Paciente'" + oPaciente.Id_Paciente + "','" + oPaciente.Nombre_Paciente
+
+            string fechaFormateada = oPaciente.Fecha_Nacimiento.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE SP_Actualizar_Paciente " + oPaciente.Id_Paciente + ",'" + oPaciente.Nombre_Paciente
            + "','" + oPaciente.Apellido_Paciente + "','" + oPaciente.Direccion_Paciente + "','" + oPaciente.Correo + "','"
-           + oPaciente.Fecha_Nacimiento + "','" + oPaciente.Estado_Paciente + "'";
+           + fechaFormateada + "','" + oPaciente.Estado_Paciente + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {

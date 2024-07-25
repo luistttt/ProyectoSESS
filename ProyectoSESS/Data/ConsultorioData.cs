@@ -31,8 +31,7 @@ namespace ProyectoSESS.Data
         public static bool ActualizarConsultorio(Consultorio oConsultorio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Actualizar_Consultorio '" + oConsultorio.IdConsultorio + "','" + oConsultorio.Numero_Consultorio + "'";
+            string sentencia= "EXECUTE Actualizar_Consultorio " + oConsultorio.IdConsultorio + ",'" + oConsultorio.Numero_Consultorio + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {

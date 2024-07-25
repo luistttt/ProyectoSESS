@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -32,8 +33,10 @@ namespace ProyectoSESS.Data
         public static bool Actualizar_Horario_Medico(Horario_Medico oHorario_Medico)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Actualizar_Horario_Medico'" + oHorario_Medico.Id_Horario + "','" + oHorario_Medico.Id_Medico + "','" + oHorario_Medico.Fecha_Horario
+
+            string fechaFormateada = oHorario_Medico.Fecha_Horario.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            
+            string sentencia = "EXECUTE Actualizar_Horario_Medico " + oHorario_Medico.Id_Horario + "," + oHorario_Medico.Id_Medico + ",'" + fechaFormateada
                 + "','" + oHorario_Medico.Estado_Horario + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))

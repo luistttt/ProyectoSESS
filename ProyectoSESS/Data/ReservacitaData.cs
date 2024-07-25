@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 
 namespace ProyectoSESS.Data
@@ -33,11 +35,14 @@ namespace ProyectoSESS.Data
         public static bool ActualizarReservacita(Reservacita oReservacita)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Actiualizar_ReservarCita '" + oReservacita.Id_Cita + "','" + oReservacita.Id_Paciente
-           + "','" + oReservacita.Id_Horario + "','" + oReservacita.Id_Consultorio + "'; '" + oReservacita.Fecha_Ingreso + "','"
-           + oReservacita.Estado_Cita + "'";
-            if (!objEst.EjecutarSentencia(sentencia, false))
+
+            string fechaFormateada = oReservacita.Fecha_Ingreso.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE Actualizar_ReservaCita " + oReservacita.Id_Cita + "," + oReservacita.Id_Paciente
+           + "," + oReservacita.Id_Horario + "," + oReservacita.Id_Consultorio + ",'" + oReservacita.Estado_Cita + "','"
+           + fechaFormateada + "'";
+
+            if (!objEst.EjecutarSentencia(sentencia, false)) 
             {
                 objEst = null;
                 return false;

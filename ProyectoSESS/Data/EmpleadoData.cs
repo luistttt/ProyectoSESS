@@ -31,8 +31,8 @@ namespace ProyectoSESS.Data
         public static bool ActualizarEmpleado(Empleado oEmpleado)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_EMPLEADO '" + oEmpleado.Id_Empleado + "','" + oEmpleado.Nombre_Empleado + "','" + oEmpleado.Apellido_Empleado + "','" + oEmpleado.Id_Cargo + "','" + oEmpleado.Direccion_Empleado + "','" + oEmpleado.Telefono_Empleado + "','" + oEmpleado.Estado_Empleado + "'";
+
+            string sentencia = "EXECUTE SP_ACTUALIZAR_EMPLEADO " + oEmpleado.Id_Empleado + ",'" + oEmpleado.Nombre_Empleado + "','" + oEmpleado.Apellido_Empleado + "'," + oEmpleado.Id_Cargo + ",'" + oEmpleado.Direccion_Empleado + "'," + oEmpleado.Telefono_Empleado + ",'" + oEmpleado.Estado_Empleado + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {

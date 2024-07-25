@@ -31,8 +31,8 @@ namespace ProyectoSESS.Data
         public static bool ActualizarEspecialidad(Especialidad oEspecialidad)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_ESPECIALIDAD '" + oEspecialidad.Id_Especialidad + "','" + oEspecialidad.Nombre_Especialidad + "'";
+
+            string sentencia = "EXECUTE SP_ACTUALIZAR_ESPECIALIDAD " + oEspecialidad.Id_Especialidad + ",'" + oEspecialidad.Nombre_Especialidad + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {

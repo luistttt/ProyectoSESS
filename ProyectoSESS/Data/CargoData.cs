@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using static System.Net.WebRequestMethods;
 
 namespace ProyectoSESS.Data
 {
@@ -31,8 +32,7 @@ namespace ProyectoSESS.Data
         public static bool ActualizarCargo(Cargo oCargo)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_Cargo '" + oCargo.Id_Cargo + "','" + oCargo.Nombre_Cargo + "'";
+            string sentencia = "EXECUTE SP_ACTUALIZAR_Cargo " + oCargo.Id_Cargo + ",'" + oCargo.Nombre_Cargo + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
