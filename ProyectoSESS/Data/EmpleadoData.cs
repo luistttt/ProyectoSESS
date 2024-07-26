@@ -12,8 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarEmpleado(Empleado oEmpleado)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_INSERTAR_EMPLEADO '" + oEmpleado.Id_Empleado + "','" + oEmpleado.Nombre_Empleado + "','" + oEmpleado.Apellido_Empleado + "','" + oEmpleado.Id_Cargo + "','" + oEmpleado.Direccion_Empleado + "','" + oEmpleado.Telefono_Empleado + "','" + oEmpleado.Estado_Empleado + "'";
+            string sentencia = "EXECUTE SP_INSERTAR_EMPLEADO " + oEmpleado.Id_Empleado + ",'" + oEmpleado.Nombre_Empleado + "','" + oEmpleado.Apellido_Empleado + "'," + oEmpleado.Id_Cargo + ",'" + oEmpleado.Direccion_Empleado + "'," + oEmpleado.Telefono_Empleado + ",'" + oEmpleado.Estado_Empleado + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
 
@@ -46,12 +45,10 @@ namespace ProyectoSESS.Data
             }
         }
 
-        public static bool EliminarEmpleado(string id)
+        public static bool EliminarEmpleado(string id_Empleado)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-
-            sentencia = "EXECUTE SP_ELIMINAR_EMPLEADO '" + id + "'";
+            string sentencia = "EXECUTE SP_ELIMINAR_EMPLEADO " + id_Empleado ;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {

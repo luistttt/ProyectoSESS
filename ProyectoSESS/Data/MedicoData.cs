@@ -12,9 +12,8 @@ namespace ProyectoSESS.Data
         public static bool InsertarMedico(Medico oMedico)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Medico'" + oMedico.Id_Medico + "','" + oMedico.Id_Empleado
-           + "','" + oMedico.Id_Especialidad + "','" + oMedico.Numero_Consultorio + "','" + oMedico.Estado_Medico + "'";
+            string sentencia = "EXECUTE SP_Insertar_Medico " + oMedico.Id_Medico + "," + oMedico.Id_Empleado
+           + "," + oMedico.Id_Especialidad + "," + oMedico.Numero_Consultorio + ",'" + oMedico.Estado_Medico + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -49,8 +48,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarMedico(int Id_medico)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Sp_Eliminar_Medico '" + Id_medico + "'";
+            string sentencia = "EXECUTE Sp_Eliminar_Medico " + Id_medico ;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

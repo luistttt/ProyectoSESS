@@ -12,8 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarConsultorio(Consultorio oConsultorio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Consultorio '" + oConsultorio.IdConsultorio + "','" + oConsultorio.Numero_Consultorio + "'";
+            string sentencia = "EXECUTE SP_Insertar_Consultorio " + oConsultorio.IdConsultorio + "'," + oConsultorio.Numero_Consultorio ;
 
             if (!objEst.EjecutarSentencia(sentencia, false))
 
@@ -48,9 +47,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarConsultorio(string id)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-
-            sentencia = "EXECUTE Eliminar_Consultorio '" + id + "'";
+            string sentencia = "EXECUTE Eliminar_Consultorio " + id ;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {

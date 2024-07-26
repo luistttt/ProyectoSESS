@@ -11,9 +11,11 @@ namespace ProyectoSESS.Data
         public static bool InsertarHistoriaMedica(HistoriaMedica oHistoriaMedica)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_INSERTAR_HISTORIA_MEDICA'" + oHistoriaMedica.Id_Historia + "','" + oHistoriaMedica.Id_Paciente
-           + "','" + oHistoriaMedica.Id_Medico + "','" + oHistoriaMedica.Fecha_Ingreso + "','" + oHistoriaMedica.Estado_Historia + 
+
+            string fechaFormateada = oHistoriaMedica.Fecha_Ingreso.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE SP_INSERTAR_HISTORIA_MEDICA " + oHistoriaMedica.Id_Historia + "," + oHistoriaMedica.Id_Medico
+           + "," + oHistoriaMedica.Id_Paciente + ",'" + fechaFormateada + "','" + oHistoriaMedica.Estado_Historia + 
            "','" + oHistoriaMedica.Concepto +"','" +oHistoriaMedica.Observaciones + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
@@ -54,8 +56,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarHistoriaMedica(int Id_historia)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ELIMINAR_HISTORIA_MEDICA '" + Id_historia + "'";
+            string sentencia = "EXECUTE SP_ELIMINAR_HISTORIA_MEDICA " + Id_historia;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

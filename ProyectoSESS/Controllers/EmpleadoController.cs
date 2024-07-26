@@ -32,9 +32,9 @@ namespace ProyectoSESS.Controllers
             return EmpleadoData.ActualizarEmpleado(oEmpleado);
         }
         // DELETE api/<controller>/5
-        public bool Delete(string id)
+        public bool Delete(string id_Empleado)
         {
-            return EmpleadoData.EliminarEmpleado(id);
+            return EmpleadoData.EliminarEmpleado(id_Empleado);
         }
     }
 }
