@@ -7,7 +7,7 @@ namespace ProyectoSESS.Models
 {
     public class Consultorio
     {
-        public int IdConsultorio { get; set; }
+        public int idConsultorio { get; set; }
         public int Numero_Consultorio { get; set; }
     }
 }

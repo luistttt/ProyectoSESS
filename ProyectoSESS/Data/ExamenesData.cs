@@ -13,9 +13,11 @@ namespace ProyectoSESS.Data
         public static bool InsertarExamenes(Examenes oExamenes)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Examenes'" + oExamenes.Id_Cita + "','" + oExamenes.Id_Servicio
-           + "','" + oExamenes.Nota_Medica + "','" + oExamenes.Fecha_examen + "','" + oExamenes.Resultados + "'";
+
+            string fechaFormateada = oExamenes.Fecha_examen.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE SP_Insertar_Examenes " + oExamenes.Id_Cita + "," + oExamenes.Id_Servicio
+           + ",'" + oExamenes.Nota_Medica + "','" + fechaFormateada + "','" + oExamenes.Resultados + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

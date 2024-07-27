@@ -12,7 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarConsultorio(Consultorio oConsultorio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia = "EXECUTE SP_Insertar_Consultorio " + oConsultorio.IdConsultorio + "'," + oConsultorio.Numero_Consultorio ;
+            string sentencia = "EXECUTE SP_Insertar_Consultorio " + oConsultorio.idConsultorio + "," + oConsultorio.Numero_Consultorio ;
 
             if (!objEst.EjecutarSentencia(sentencia, false))
 
@@ -30,7 +30,7 @@ namespace ProyectoSESS.Data
         public static bool ActualizarConsultorio(Consultorio oConsultorio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia= "EXECUTE Actualizar_Consultorio " + oConsultorio.IdConsultorio + ",'" + oConsultorio.Numero_Consultorio + "'";
+            string sentencia= "EXECUTE Actualizar_Consultorio " + oConsultorio.idConsultorio + ",'" + oConsultorio.Numero_Consultorio + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
@@ -74,7 +74,7 @@ namespace ProyectoSESS.Data
                 {
                     oListaConsultorio.Add(new Consultorio()
                     {
-                        IdConsultorio = Convert.ToInt32(dr["ID_Consultorio"]),
+                        idConsultorio = Convert.ToInt32(dr["ID_Consultorio"]),
                         Numero_Consultorio = Convert.ToInt32(dr["Numero_Consultorio"])
                     });
                 }
@@ -100,7 +100,7 @@ namespace ProyectoSESS.Data
                     oListaConsultorio.Add(new Consultorio()
                     {
 
-                        IdConsultorio = Convert.ToInt32(dr["ID_Consultorio"]),
+                        idConsultorio = Convert.ToInt32(dr["ID_Consultorio"]),
                         Numero_Consultorio = Convert.ToInt32(dr["Numero_Consultorio"])
                     });
                 }

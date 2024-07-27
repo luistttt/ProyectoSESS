@@ -12,8 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarEspecialidad(Especialidad oEspecialidad)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_INSERTAR_ESPECIALIDAD '" + oEspecialidad.Id_Especialidad + "','" + oEspecialidad.Nombre_Especialidad + "'";
+            string sentencia = "EXECUTE SP_INSERTAR_ESPECIALIDAD " + oEspecialidad.Id_Especialidad + ",'" + oEspecialidad.Nombre_Especialidad + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
 
@@ -49,9 +48,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarEspecialidad(string id)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-
-            sentencia = "EXECUTE SP_ELIMINAR_ESPECIALIDAD '" + id + "'";
+            string sentencia = "EXECUTE SP_ELIMINAR_ESPECIALIDAD " + id ;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {

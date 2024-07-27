@@ -13,8 +13,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarCargo(Cargo oCargo)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Cargo '" + oCargo.Id_Cargo + "','" + oCargo.Nombre_Cargo + "'";
+            string sentencia = "EXECUTE SP_Insertar_Cargo " + oCargo.Id_Cargo + ",'" + oCargo.Nombre_Cargo + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
 
@@ -49,9 +48,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarCargo(string id)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-
-            sentencia = "EXECUTE SP_Eliminar_Cargo '" + id + "'";
+            string sentencia = "EXECUTE SP_Eliminar_Cargo " + id ;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {

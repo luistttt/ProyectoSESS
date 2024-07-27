@@ -13,9 +13,11 @@ namespace ProyectoSESS.Data
         public static bool Insertar_Horario_Medico(Horario_Medico oHorario_Medico)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Insertar_Horario_Medico'" + oHorario_Medico.Id_Horario + "','" + oHorario_Medico.Id_Medico
-           + "','" + oHorario_Medico.Fecha_Horario + "','" + oHorario_Medico.Estado_Horario + "'";
+
+            string fechaFormateada = oHorario_Medico.Fecha_Horario.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE Insertar_Horario_Medico " + oHorario_Medico.Id_Horario + "," + oHorario_Medico.Id_Medico
+           + ",'" + fechaFormateada + "','" + oHorario_Medico.Estado_Horario + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -108,9 +110,7 @@ namespace ProyectoSESS.Data
         public static bool Eliminar_Horario_Medico(int Id_Horario)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-
-            sentencia = "EXECUTE Eliminar_HorarioMedico '" + Id_Horario + "'";
+            string sentencia = "EXECUTE Eliminar_HorarioMedico " + Id_Horario ;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {

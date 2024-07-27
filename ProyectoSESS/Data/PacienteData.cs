@@ -12,11 +12,12 @@ namespace ProyectoSESS.Data
     {
         public static bool InsertarPaciente(Paciente oPaciente)
         {
+            string fechaFormateada = oPaciente.Fecha_Nacimiento.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+        
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Paciente'" + oPaciente.Id_Paciente + "','" + oPaciente.Nombre_Paciente
+            string sentencia = "EXECUTE SP_Insertar_Paciente " + oPaciente.Id_Paciente + ",'" + oPaciente.Nombre_Paciente
                 + "','" + oPaciente.Apellido_Paciente + "','" + oPaciente.Direccion_Paciente + "','" + oPaciente.Correo +
-                "','" + oPaciente.Fecha_Nacimiento + "','" + oPaciente.Estado_Paciente + "'";
+                "','" + fechaFormateada + "','" + oPaciente.Estado_Paciente + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -54,8 +55,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarPaciente(int Id_Paciente)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Eliminar_Paciente '" + Id_Paciente + "'";
+            string sentencia = "EXECUTE SP_Eliminar_Paciente " + Id_Paciente ;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

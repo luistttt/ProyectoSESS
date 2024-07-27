@@ -14,9 +14,11 @@ namespace ProyectoSESS.Data
         public static bool InsertarReservacita(Reservacita oReservacita)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_ReservaCita '" + oReservacita.Id_Cita + "','" + oReservacita.Id_Paciente
-           + "','" + oReservacita.Id_Horario + "','" + oReservacita.Id_Consultorio + "'; '" + oReservacita.Fecha_Ingreso + "','"
+
+            string fechaFormateada = oReservacita.Fecha_Ingreso.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+
+            string sentencia = "EXECUTE SP_Insertar_ReservaCita " + oReservacita.Id_Cita + "," + oReservacita.Id_Paciente
+           + "," + oReservacita.Id_Horario + "," + oReservacita.Id_Consultorio + "; '" + fechaFormateada + "','"
            + oReservacita.Estado_Cita + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
@@ -56,8 +58,7 @@ namespace ProyectoSESS.Data
         public static bool EliminarReservacita(int Id_Cita)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE Eliminar_ReservarCita '" + Id_Cita + "'";
+            string sentencia = "EXECUTE Eliminar_ReservarCita " + Id_Cita ;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
