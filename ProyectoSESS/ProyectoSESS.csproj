@@ -117,9 +117,11 @@
     <Compile Include="Controllers\HistoriaMedicaController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\Horario_MedicoController.cs" />
+    <Compile Include="Controllers\OrdenMedicaController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\ReservacitaController.cs" />
+    <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Data\CargoData.cs" />
     <Compile Include="Data\ConexionBD.cs" />
     <Compile Include="Data\ConsultorioData.cs" />
@@ -129,8 +131,10 @@
     <Compile Include="Data\HistoriaMedicaData.cs" />
     <Compile Include="Data\Horario_MedicoData.cs" />
     <Compile Include="Data\MedicoData.cs" />
+    <Compile Include="Data\OrdenMedicaData.cs" />
     <Compile Include="Data\PacienteData.cs" />
     <Compile Include="Data\ReservacitaData.cs" />
+    <Compile Include="Data\ServicioData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,8 +146,10 @@
     <Compile Include="Models\HistoriaMedica.cs" />
     <Compile Include="Models\Horario_Medico.cs" />
     <Compile Include="Models\Medico.cs" />
+    <Compile Include="Models\OrdenMedica.cs" />
     <Compile Include="Models\Paciente.cs" />
     <Compile Include="Models\Reservacita.cs" />
+    <Compile Include="Models\Servicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
