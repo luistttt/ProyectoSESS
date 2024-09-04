@@ -32,7 +32,7 @@ namespace ProyectoSESS.Controllers
             return PacienteData.ActualizarPaciente(oPaciente);
         }
         // DELETE api/<controller>/5
-        public bool Eliminar(int Id_Paciente)
+        public bool Delete(int Id_Paciente)
         {
             return PacienteData.EliminarPaciente(Id_Paciente);
         }

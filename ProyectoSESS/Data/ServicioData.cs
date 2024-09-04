@@ -12,9 +12,8 @@ namespace ProyectoSESS.Data
         public static bool InsertarServicio(Servicio oservicio) 
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_INSERTAR_SERVICIO'" + oservicio.Id_Servicio + "','" + oservicio.Id_Tiposervicio
-           + "','" + oservicio.Consulta_Servicio + "','" + oservicio.Estado_Servicio + "'";
+            string sentencia = "EXECUTE SP_INSERTAR_SERVICIO " + oservicio.Id_Servicio + "," + oservicio.Id_Tiposervicio
+           + ",'" + oservicio.Consulta_Servicio + "','" + oservicio.Estado_Servicio + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -29,9 +28,8 @@ namespace ProyectoSESS.Data
         public static bool Actualizarservicio(Servicio oservicio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_SERVICIO'" + oservicio.Id_Servicio + "','" + oservicio.Id_Tiposervicio         
-           + "','" + oservicio.Consulta_Servicio + "','" + oservicio.Estado_Servicio + "'";
+            string sentencia = "EXECUTE SP_ACTUALIZAR_SERVICIO " + oservicio.Id_Servicio + "," + oservicio.Id_Tiposervicio         
+           + ",'" + oservicio.Consulta_Servicio + "','" + oservicio.Estado_Servicio + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
@@ -48,8 +46,7 @@ namespace ProyectoSESS.Data
         public static bool Eliminarservicio(int Id_servicio)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ELIMINAR_SERVICIO '" + Id_servicio + "'";
+            string sentencia = "EXECUTE SP_ELIMINAR_SERVICIO " + Id_servicio ;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -67,7 +64,7 @@ namespace ProyectoSESS.Data
             List<Servicio> oListarservicio = new List<Servicio>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE SP_Listar_Servicio";
+            sentencia = "EXECUTE SP_Listar_Servicio ";
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;
@@ -94,8 +91,7 @@ namespace ProyectoSESS.Data
         {
             List<Servicio> oListaServicio = new List<Servicio>();
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_CONSULTAR_SERVICIO'" + Id_Servicio + "'";
+            string sentencia = "EXECUTE SP_CONSULTAR_SERVICIO " + Id_Servicio ;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;

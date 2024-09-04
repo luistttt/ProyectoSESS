@@ -12,8 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarOrdenMedica(OrdenMedica oOrdenMedica)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_Insertar_Orden_Medica'" + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
+            string sentencia = "EXECUTE SP_Insertar_Orden_Medica " + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
            + "," + oOrdenMedica.Id_Examen + ",'" + oOrdenMedica.Medicamento +"','" + oOrdenMedica.Observaciones+ "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
@@ -29,8 +28,7 @@ namespace ProyectoSESS.Data
         public static bool ActualizarOrdenMedica(OrdenMedica oOrdenMedica)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_ACTUALIZAR_ORDEN_MEDICA'" + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
+            string sentencia = "EXECUTE SP_ACTUALIZAR_ORDEN_MEDICA " + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
            + "," + oOrdenMedica.Id_Examen + ",'" + oOrdenMedica.Medicamento + "','" + oOrdenMedica.Observaciones + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
@@ -80,8 +78,7 @@ namespace ProyectoSESS.Data
         {
             List<OrdenMedica> oListaOrdenMedica = new List<OrdenMedica>();
             ConexionBD objEst = new ConexionBD();
-            string sentencia;
-            sentencia = "EXECUTE SP_CONSULTAR_ORDEN_MEDICA'" + Id_Cita + "'";
+            string sentencia = "EXECUTE SP_CONSULTAR_ORDEN_MEDICA " + Id_Cita ;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;
