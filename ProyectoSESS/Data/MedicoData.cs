@@ -30,7 +30,7 @@ namespace ProyectoSESS.Data
         {
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE SP_Actualizar_Medico'" + oMedico.Id_Medico + "','" + oMedico.Id_Empleado
+            sentencia = "EXECUTE SP_Actualizar_Medico '" + oMedico.Id_Medico + "','" + oMedico.Id_Empleado
            + "','" + oMedico.Id_Especialidad + "','" + oMedico.Numero_Consultorio + "','" + oMedico.Estado_Medico + "'";
 
             if (!objEst.EjecutarSentencia(sentencia, false))
@@ -45,10 +45,10 @@ namespace ProyectoSESS.Data
             }
         }
 
-        public static bool EliminarMedico(int Id_medico)
+        public static bool EliminarMedico(int Id_Medico)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia = "EXECUTE Sp_Eliminar_Medico " + Id_medico ;
+            string sentencia = "EXECUTE Sp_Eliminar_Medico " + Id_Medico ;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;
@@ -66,7 +66,7 @@ namespace ProyectoSESS.Data
             List<Medico> oListarMedico = new List<Medico>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE SP_Listar_Medico";
+            sentencia = "EXECUTE SP_Listar_Medico ";
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;

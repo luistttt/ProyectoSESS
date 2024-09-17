@@ -32,7 +32,7 @@ namespace ProyectoSESS.Controllers
             return CargoData.ActualizarCargo(oCargo);
         }
         // DELETE api/<controller>/5
-        public bool Delete(string id)
+        public bool Delete(int id)
         {
             return CargoData.EliminarCargo(id);
         }

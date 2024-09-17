@@ -45,10 +45,10 @@ namespace ProyectoSESS.Data
             }
         }
 
-        public static bool EliminarCargo(string id)
+        public static bool EliminarCargo(int id)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia = "EXECUTE SP_Eliminar_Cargo " + id ;
+            string sentencia = "EXECUTE SP_Eliminar_Cargo " + id;
             if (!objEst.EjecutarSentencia(sentencia, false))
 
             {
@@ -92,7 +92,7 @@ namespace ProyectoSESS.Data
             List<Cargo> oListaCargo = new List<Cargo>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE SP_Consultar_Cargo '" + id + "'";
+            sentencia = "EXECUTE SP_Consultar_Cargo '" + id;
             if (objEst.Consultar(sentencia, false))
             {
                 SqlDataReader dr = objEst.Reader;
