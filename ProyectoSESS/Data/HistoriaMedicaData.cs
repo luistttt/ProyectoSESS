@@ -86,6 +86,7 @@ namespace ProyectoSESS.Data
                         Id_Medico = Convert.ToInt32(dr["Id_Medico"]),
                         Id_Paciente = Convert.ToInt32(dr["Id_Paciente"]),
                         Fecha_Ingreso = Convert.ToDateTime(dr["Fecha_Ingreso"].ToString()),
+                        Estado_Historia= dr["Estado_Historia"].ToString(),
                         Concepto = dr["Concepto"].ToString(),
                         Observaciones = dr["Observaciones"].ToString()
 

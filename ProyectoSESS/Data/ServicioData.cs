@@ -100,7 +100,7 @@ namespace ProyectoSESS.Data
                     oListaServicio.Add(new Servicio()
                     {
                         Id_Servicio = Convert.ToInt32(dr["Id_Servicio"]),
-                        Id_Tiposervicio = Convert.ToInt32(dr["Id_Tipo de servicio"]),
+                        Id_Tiposervicio = Convert.ToInt32(dr["Id_Tiposervicio"]),
                         Consulta_Servicio = dr["Consulta_Servicio"].ToString(),
                         Estado_Servicio = dr["Estado_Servicio"].ToString()
 
