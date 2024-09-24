@@ -12,7 +12,7 @@ namespace ProyectoSESS.Data
         public static bool InsertarOrdenMedica(OrdenMedica oOrdenMedica)
         {
             ConexionBD objEst = new ConexionBD();
-            string sentencia = "EXECUTE SP_Insertar_Orden_Medica" + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
+            string sentencia = "EXECUTE SP_Insertar_Orden_Medica " + oOrdenMedica.Id_Cita + "," + oOrdenMedica.Id_Medico
            + "," + oOrdenMedica.Id_Examen + ",'" + oOrdenMedica.Medicamento +"','" + oOrdenMedica.Observaciones+ "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
